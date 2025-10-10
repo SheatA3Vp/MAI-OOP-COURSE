@@ -2,7 +2,7 @@
 
 #include <string>
 #include <iostream>
-
+#include <vector>
 
 class Hex {
 public:
@@ -16,6 +16,17 @@ public:
     
     // Конструктор из строки
     Hex(const std::string& sourceString);
+
+    // Конструктор из вектора
+    Hex(const std::vector<unsigned char>& sourceVector);
+
+    // === ГЕТТЕРЫ ===
+
+    // Геттер для размера числа
+    size_t getSize() const;
+
+    // Геттер для цифры числа
+    unsigned char getDigit(size_t index) const;
     
     // === КОПИРУЮЩИЕ И ПЕРЕМЕЩАЮЩИЕ ОПЕРАЦИИ ===
     
@@ -25,13 +36,15 @@ public:
     // Перемещающий конструктор (C++11)
     Hex(Hex&& other) noexcept;
 
-    // === ОПЕРАЦИИ С МАССИВАМИ ===
+    // === ОПЕРАЦИИ С ЧИСЛАМИ ===
     
     // Сложение чисел
-    Hex addition(const Hex& other);
+    Hex add(const Hex& other);
     
     // Вычитание чисел
-    Hex subtraction(const Hex& other);
+    Hex subtract(const Hex& other);
+
+    // === ОПЕРАЦИИ СРАВНЕНИЯ ===
     
     // Сравнение чисел на равенство
     bool equals(const Hex& other) const;
@@ -52,7 +65,7 @@ public:
 
 private:
     // === ДАННЫЕ-ЧЛЕНЫ ===
-    
+
     size_t numSize;           // Размер числа
     unsigned char* dataHex;   // Указатель на динамический массив с числом
 };
