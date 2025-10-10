@@ -11,9 +11,6 @@ public:
     // Конструктор по умолчанию
     Hex();
     
-    // Конструктор с заполнением (размер + значение по умолчанию)
-    Hex(const size_t& arraySize, unsigned char defaultValue = 0);
-    
     // Конструктор из списка инициализации (C++11)
     Hex(const std::initializer_list<unsigned char>& initialValues);
     
